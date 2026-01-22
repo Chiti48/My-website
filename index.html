@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
+            /* ใช้ฟอนต์ Kanit ที่ดึงมาจาก Google Fonts */
             font-family: 'Kanit', sans-serif;
         }
     </style>
@@ -163,7 +164,7 @@
 
     <section id="portfolio" class="py-20 bg-white px-4">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold text-center mb-12">ผลงานที่ผ่านมา</h3>
+            <h3 class="text-3xl font-bold text-center mb-12">Portfolio</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="border rounded-xl overflow-hidden shadow-sm transition hover:shadow-lg">
                     <div class="h-48 overflow-hidden cursor-zoom-in">
@@ -273,7 +274,7 @@
     </footer>
 
     <script>
-        // --- 1. Progress Bar Logic ---
+        // เพิ่มลูกเล่นของ Nav-Bar
         window.onscroll = function () {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -281,21 +282,23 @@
             document.getElementById("progressBar").style.width = scrolled + "%";
         };
 
-        // --- 2. Mobile Menu Toggle Logic ---
+        //ส่วนควบคุมการเปิด-ปิดเมนูสำหรับหน้าจอมือถือ
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
         menuBtn.addEventListener('click', () => {
-            if (mobileMenu.style.maxHeight === '0px' || mobileMenu.style.maxHeight === '') {
+            if (
+                //ส่วนของการเปิดเมนู
+                mobileMenu.style.maxHeight === '0px' || mobileMenu.style.maxHeight === '') {
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
                 mobileMenu.style.opacity = "1";
             } else {
+                //ส่วนของการปิดเมนู
                 mobileMenu.style.maxHeight = "0px";
                 mobileMenu.style.opacity = "0";
             }
         });
-
-        // ปิดเมนูเมื่อคลิกลิงก์
+        //ส่วนจัดการการปิดเมนูอัตโนมัติเมื่อมีการคลิกลิงก์ภายในเมนู
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.style.maxHeight = "0px";
@@ -303,7 +306,7 @@
             });
         });
 
-        // --- 3. Form Handling Logic ---
+        // อ้างอิง Element ของฟอร์มและข้อความตอบกลับจาก HTML โดยใช้ ID
         const contactForm = document.getElementById('contactForm');
         const responseMsg = document.getElementById('responseMsg');
 
@@ -340,4 +343,5 @@
         });
     </script>
 </body>
+
 </html>
